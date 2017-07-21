@@ -31,7 +31,7 @@ public class PermMissingElem {
 		}
 		return B[i - 1] + 1;
 	}
-
+ 
 	public static void main(String[] args) {
 		// int[] A = { 1, 2, 5, 6, 3 };
 		int[] A = {};
