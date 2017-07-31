@@ -10,36 +10,34 @@ public class MinAvgTwoSlice {
 		if (A.length == 2) {
 			return 0;
 		}
-		int a = A[0];
-		int b = A[1];
-		int min = (a + b) / 2;
-		int position = 0;
-		for (int i = 1; i < A.length - 1; i++) {
-			a = A[i];
-			b = A[i + 1];
-			if ((a + b) / 2 < min) {
-				min = (a + b) / 2;
-				position = i;
+		int index = 0;
+		double min = Integer.MAX_VALUE;
+		int sum = 0;
+		double count = 0.0;
+		int result = 0;
 
-					// starting with third element
-				int j = i+2;
-				int sum = A[j];
-				int count = 1;
-				
-				for (; j < A.length; j++) {
-					sum+=A[j];
-					count++;
-					if(sum/count < min){
-						
-					}
+		for (index = 0; index < A.length; index++) {
+
+			sum=0;
+			count=0;
+			for (int j = index; j < A.length; j++) {
+
+				sum += A[j];
+				count++;
+				if (count == 1) {
+					continue;
 				}
-				
-				
-				
-				
+				if (sum / count < min) {
+					min = sum / count;
+					result = index;
+				} else {
+					break;
+				}
+
 			}
+
 		}
-		return position;
+		return result;
 
 	}
 
